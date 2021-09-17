@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
   end
 
   def create
-    Chat.create(content: params[:content])
+    Chat.create(name: params[:name], subject: params[:subject], content: params[:content])
     redirect_to action: :index
   end
 

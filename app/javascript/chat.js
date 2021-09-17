@@ -1,5 +1,6 @@
 function chat() {
   const submit = document.getElementById("submit");
+  console.log(submit);
   submit.addEventListener("click", (e) => {
     const formData = new FormData(document.getElementById("form"));
     const XHR = new XMLHttpRequest();
@@ -12,7 +13,8 @@ function chat() {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       }
-      const item = XHR.response.post;
+      console.log(formData);
+      const item = XHR.response.chat;
       const list = document.getElementById("list");
       const formText = document.getElementById("content");
       const HTML = `
@@ -21,7 +23,7 @@ function chat() {
             投稿日時:${item.create_at}
           </div>
           <div class="post-content">
-          ${item.content}
+          ${item.content}ああああ
           </div>
         </div>`;
       list.insertAdjacentHTML("afterend", HTML);

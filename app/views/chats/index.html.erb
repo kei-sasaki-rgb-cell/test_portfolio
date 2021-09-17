@@ -1,5 +1,7 @@
 <h1>ChatApp</h1>
 <%= form_with url:  "/chats", method: :chat,id: "form" do |form| %>
+  <%= form.text_field :name %>
+  <%= form.text_field :subject %>
   <%= form.text_field :content %>
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
@@ -10,6 +12,8 @@
     投稿日時：<%= chat.created_at %>
   </div>
   <div class="chat-content">
+    <%= chat.name %>
+    <%= chat.subject %>
     <%= chat.content %>
   </div>
 </div>
