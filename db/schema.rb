@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_121412) do
     t.text "name"
     t.string "subject"
     t.text "content"
+    t.boolean "checked"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

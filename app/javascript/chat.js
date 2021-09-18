@@ -4,7 +4,6 @@ function chat() {
   submit.addEventListener("click", (e) => {
     const formData = new FormData(document.getElementById("form"));
     const XHR = new XMLHttpRequest();
-    //XHR.open("POST", "/posts", true);
     XHR.open("POST", "/chats", true);
     XHR.responseType = "json";
     XHR.send(formData);
@@ -29,6 +28,7 @@ function chat() {
       list.insertAdjacentHTML("afterend", HTML);
       formText.value = "";
     };
+    //e.preventDefault();
   });
 }
-window.addEventListener("load", chat);
+//window.addEventListener("load", chat);

@@ -1,5 +1,5 @@
 <h1>ChatApp</h1>
-<%= form_with url:  "/chats", method: :chat,id: "form" do |form| %>
+<%= form_with url:  "/chats", method: :post,id: "form" do |form| %>
   <%= form.text_field :name %>
   <%= form.text_field :subject %>
   <%= form.text_field :content %>
@@ -7,14 +7,15 @@
 <% end %>
 
 <% @chats.each do |chat| %>
-<div class="chat">
-  <div class="chat-date">
-    投稿日時：<%= chat.created_at %>
+<div class="chat" data-id=<%= chat.id %> data-check=<%= chat.checked %>> <%#data-<情報>として、属性値には文字列で情報を与えることができます。%>
+  <div class="chat">
+    <div class="chat-date">
+      投稿日時：<%= chat.created_at %>
+    </div>
+    <div class="chat-content">
+      <%= chat.name %>
+      <%= chat.subject %>
+      <%= chat.content %>ああああ
+    </div>
   </div>
-  <div class="chat-content">
-    <%= chat.name %>
-    <%= chat.subject %>
-    <%= chat.content %>
-  </div>
-</div>
 <% end %>

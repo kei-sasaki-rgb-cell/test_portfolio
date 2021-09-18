@@ -4,6 +4,7 @@ class CreateChats < ActiveRecord::Migration[6.0]
       t.text :name
       t.string :subject
       t.text :content
+      t.boolean :checked
       t.timestamps
     end
   end
