@@ -1,21 +1,40 @@
-<h1>ChatApp</h1>
-<%= form_with url:  "/chats", method: :post,id: "form" do |form| %>
-  <%= form.text_field :name %>
-  <%= form.text_field :subject %>
-  <%= form.text_field :content %>
-  <%= form.submit '投稿する' , id: "submit" %>
-<% end %>
+<h1 class="title">ChatApp</h1>
+
+<div class="form-block">
+  <div class="child-form-block">
+    <%= form_with url: "/chats", method: :post,id: "form" do |form| %>
+    <div class="form-text"><p class="i">ユーザー名</p></div>
+      <%= form.text_field :name %>
+    <div class="form-text"><p class="i">タイトル</p></div>
+      <%= form.text_field :subject %>
+    <div class="form-text"><p class="i">本文</p></div>
+      <%= form.text_field :content , class:"content-form" %>
+    <p>
+      <%= form.submit '投稿する' , id: "submit" %>
+    </p>
+    <% end %>
+  </div>
+</div>
+
+<div id="list">
+</div>
 
 <% @chats.each do |chat| %>
 <div class="chat" data-id=<%= chat.id %> data-check=<%= chat.checked %>> <%#data-<情報>として、属性値には文字列で情報を与えることができます。%>
-  <div class="chat">
+  <div class="chat-cohesive">
     <div class="chat-date">
       投稿日時：<%= chat.created_at %>
     </div>
     <div class="chat-content">
-      <%= chat.name %>
-      <%= chat.subject %>
-      <%= chat.content %>ああああ
+        <div class="chat-name">
+          ユーザー名：<%= chat.name %>
+        </div>
+        <div class="chat-title">
+          タイトル：<%= chat.subject %>
+        </div>
+        <div class="child-chat-content">
+          本文：<%= chat.content %>
+        </div>
     </div>
   </div>
 <% end %>
