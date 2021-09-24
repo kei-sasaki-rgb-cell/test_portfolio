@@ -23,9 +23,12 @@
 <div class="chat" data-id=<%= chat.id %> data-check=<%= chat.checked %>> <%#data-<情報>として、属性値には文字列で情報を与えることができます。%>
   <div class="chat-cohesive">
     <div class="chat-date">
-      投稿日時：<%= chat.created_at %>
+      投稿日時：<%= chat.created_at.strftime("%Y-%m-%d %H:%M") %>
     </div>
     <div class="chat-content">
+        <div class="chat-number">
+          id : <%= chat.public_uid %>
+        </div>
         <div class="chat-name">
           ユーザー名：<%= chat.name %>
         </div>
